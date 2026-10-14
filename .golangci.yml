@@ -1,0 +1,9 @@
+version: "2"
+linters:
+  exclusions:
+    rules:
+      # Exclude errcheck for test files — defer tp.Shutdown() in tests is standard pattern
+      # and error handling in defer is not practical.
+      - path: _test\.go
+        linters:
+          - errcheck
